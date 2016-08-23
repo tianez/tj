@@ -1,0 +1,45 @@
+/*图片上传样式*/
+html,
+body {
+  font-family: "微软雅黑";
+}
+.placeholder {
+  width: 200px;
+  height: 200px;
+}
+.webuploader-pick {
+  width: 200px;
+  height: 200px;
+}
+.filePicker {
+  position: absolute;
+  top: 0;
+}
+.webuploader-element-invisible {
+  display: none !important;
+}
+.file-item {
+  position: relative;
+}
+.file-item img {
+  width: 100%;
+}
+.info {
+  position: absolute;
+  bottom: -24px;
+}
+.progress {
+  position: absolute;
+  height: 20px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 0;
+  background: #000080;
+}
+.progress_span {
+  height: 20px;
+  background: #000000;
+  display: block;
+}
+/*# sourceMappingURL=admin.css.map */
