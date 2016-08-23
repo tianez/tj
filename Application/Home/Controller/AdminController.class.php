@@ -56,7 +56,8 @@ class AdminController extends Controller {
 						$c[2] = str_replace(' ', '', $c[2]);
 						$data['china_id'] = substr_replace($c[2], "■", 3, 3);
 						$data['china_id'] = encrypt($data['china_id']);
-						$data['password'] = md5(str_replace(' ', '', $c[3]));
+						// $data['password'] = md5(str_replace(' ', '', $c[3]));
+						$data['password'] = str_replace(' ', '', $c[3]);
 						$data['frist_data'] = $c[4];
 						$d = M('members') -> where(array('client_number' => $c[0])) -> find();
 						if (is_array($d)) {
