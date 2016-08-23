@@ -1,0 +1,30 @@
+<extend name="layout" />
+<block name="main">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="portlet light bordered">
+				<div class="portlet-title">
+					<div class="caption">{$title}</div>
+				</div>
+				<div class="portlet-body form">
+					<form class="form-horizontal" method="post">
+						<div class="form-body">
+							<div class="form-group">
+								<div class="col-md-offset-1 col-md-11">
+									<input type="submit" class="btn btn-lg red" value="立即清理" />
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row margin-top-20">
+		<div class="col-md-12">
+			<div class="note note-success">
+				<p>数据清理会清除{$reserve}天前的数据，请谨慎操作！</p>
+			</div>
+		</div>
+	</div>
+</block>

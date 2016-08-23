@@ -1,0 +1,224 @@
+<extend name="layout" />
+<block name="main">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="portlet light bordered">
+				<div class="portlet-title">
+					<div class="caption">基本信息</div>
+				</div>
+				<div class="portlet-body form">
+					<form class="form-horizontal" method="post">
+						<div class="form-body">
+							<div class="form-group">
+								<label class="col-md-3 control-label">用户账号</label>
+								<div class="col-md-4">
+									<p class="form-control-static">
+										{$user.user_account|encrypt= ###,'D'}
+									</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">账号类型</label>
+								<div class="col-md-4">
+									<p class="form-control-static">
+										<switch name="user['user_type']">
+											<case value="0">普通管理员</case>
+											<case value="1">系统管理员</case>
+										</switch>
+									</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">注册日期</label>
+								<div class="col-md-4">
+									<p class="form-control-static">
+										{$user.register_time|date="Y-m-d h:s:i A",###}
+									</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">最后登录日期</label>
+								<div class="col-md-4">
+									<p class="form-control-static">
+										{$user.last_time|strtotime=###|date='Y-m-d h:i:s A',###}
+									</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">总计登录次数</label>
+								<div class="col-md-4">
+									<p class="form-control-static">
+										{$user.login_totals}
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="form-actions"></div>
+					</form>
+				</div>
+				<div class="portlet-title">
+					<div class="caption">扩展信息</div>
+				</div>
+				<div class="portlet-body form">
+					<form class="form-horizontal" method="post">
+						<div class="form-body">
+							<div class="form-group">
+								<label class="col-md-3 control-label">真实姓名</label>
+								<div class="col-md-4">
+									<div class="input-icon input-icon-lg">
+										<i class="fa fa-user"></i>
+										<input class="form-control input-lg" name="user_name" id="user_name" placeholder="真实姓名" type="text" value="{$user['user_name']|encrypt_username}">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">用户头像</label>
+								<div class="col-md-4">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="fileinput fileinput-new placeholder" id="dndArea_head">
+												<div class="fileinput-preview thumbnail uploader-list" id="fileList_head" style="width: 200px; height: 200px;">
+													<notempty name="user['head_image']">
+														<img src="__PUBLIC__/{$user['head_image']}">
+														<else/>
+														<img src="__PUBLIC__/img/face.jpg">
+													</notempty>
+												</div>
+												<div id="filePicker_head" class="filePicker"></div>
+											</div>
+											<input type="hidden" value="{$user['head_image']}" id="head_image" name="head_image" />
+										</div>
+										<div class="col-md-6" style="padding-top: 160px;">
+											<div id="tn_head" class="btn btn-danger">开始上传</div>
+										</div>
+									</div>
+									<script src="__PUBLIC__/webuploader/webuploader.js"></script>
+									<script src="__PUBLIC__/webuploader/upload.js"></script>
+									<script>
+										var head = upload('head');
+										$('#tn_head').click(function() {
+											head.upload();
+										})
+									</script>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">身份证号码</label>
+								<div class="col-md-4">
+									<div class="input-icon input-icon-lg">
+										<i class="fa fa-cube"></i>
+										<input class="form-control input-lg" name="china_id" id="china_id" placeholder="身份证号码" type="text" value="{$user['china_id']|encrypt_china_id}">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">电子信箱</label>
+								<div class="col-md-4">
+									<div class="input-icon input-icon-lg">
+										<i class="fa fa-envelope"></i>
+										<input class="form-control input-lg" name="email" id="email" placeholder="电子信箱" type="text" value="{$user['email']|encrypt=###,'D'}">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">QQ号码</label>
+								<div class="col-md-4">
+									<div class="input-icon input-icon-lg">
+										<i class="fa fa-qq"></i>
+										<input class="form-control input-lg" name="qq_number" id="qq" placeholder="QQ" type="text" value="{$user['qq_number']|encrypt=###,'D'}">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">手机号码</label>
+								<div class="col-md-4">
+									<div class="input-icon input-icon-lg">
+										<i class="fa fa-mobile-phone"></i>
+										<input class="form-control input-lg" name="mobile_phone" id="mobile_phone" placeholder="手机号码" type="text" value="{$user['mobile_phone']|encrypt_mobile_phone}">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">办公电话</label>
+								<div class="col-md-4">
+									<div class="input-icon input-icon-lg">
+										<i class="fa fa-phone"></i>
+										<input class="form-control input-lg" name="office_phone" id="office_phone" placeholder="办公电话" type="text" value="{$user.office_phone}">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-offset-3 col-md-9">
+									<input type="hidden" name="info" value="info" />
+									<button type="submit" class="btn green btn-lg">修改</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="portlet-title">
+					<div class="caption">修改密码</div>
+				</div>
+				<div class="portlet-body form">
+					<form class="form-horizontal" method="post" onsubmit="return check();">
+						<div class="form-body">
+							<div class="form-group">
+								<label class="col-md-3 control-label">旧密码</label>
+								<div class="col-md-4">
+									<div class="input-icon input-icon-lg">
+										<i class="fa fa-unlock"></i>
+										<input class="form-control input-lg" name="pre_password" id="pre_password" placeholder="请输入你的旧密码" type="password">
+									</div>
+									<span class="help-block"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">新密码</label>
+								<div class="col-md-4">
+									<div class="input-icon input-icon-lg">
+										<i class="fa fa-unlock-alt"></i>
+										<input class="form-control input-lg" name="npassword" id="npassword" placeholder="请输入你的新密码" type="password">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">重复新密码</label>
+								<div class="col-md-4">
+									<div class="input-icon input-icon-lg">
+										<i class="fa fa-lock "></i>
+										<input class="form-control input-lg" name="repassword" id="repassword" placeholder="请重复输入你的新密码" type="password">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-offset-3 col-md-9">
+									<input type="hidden" name="info" value="password" />
+									<button type="submit" class="btn green btn-lg">修改</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		function check() {
+			var pre_password = $('#pre_password').val();
+			var npassword = $('#npassword').val();
+			var repassword = $('#repassword').val();
+			if (pre_password == '') {
+				$('#pre_password').focus();
+				return false;
+			}
+			if (npassword == '') {
+				$('#npassword').focus();
+				return false;
+			}
+			if (repassword == '') {
+				$('#repassword').focus();
+				return false;
+			}
+		}
+	</script>
+</block>

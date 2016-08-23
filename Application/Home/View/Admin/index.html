@@ -1,0 +1,127 @@
+<extend name="layout" />
+<block name="main">
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			<div class="dashboard-stat dashboard-stat-light blue-soft" href="#">
+				<div class="visual">
+					<i class="fa fa-globe"></i>
+				</div>
+				<div class="details">
+					<div class="number">基本信息</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			<a class="dashboard-stat dashboard-stat-light red-soft" href="{:U('admin/import')}">
+				<div class="visual">
+					<i class="fa fa-trophy"></i>
+				</div>
+				<div class="details">
+					<div class="number">数据导入</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			<a class="dashboard-stat dashboard-stat-light green-soft" href="{:U('admin/clear')}">
+				<div class="visual">
+					<i class="fa fa-shopping-cart"></i>
+				</div>
+				<div class="details">
+					<div class="number">数据清理</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			<a class="dashboard-stat dashboard-stat-light purple-soft" href="{:U('admin/user')}">
+				<div class="visual">
+					<i class="fa fa-users"></i>
+				</div>
+				<div class="details">
+					<div class="number">用户管理</div>
+					<div class="desc">
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="portlet light bordered">
+				<div class="portlet-title">
+					<div class="caption">基本信息</div>
+				</div>
+				<div class="portlet-body form">
+					<form class="form-horizontal" method="post">
+						<div class="form-body">
+							<div class="form-group">
+								<label class="col-md-3 control-label">最近更新时间：</label>
+								<div class="col-md-4">
+									<p class="form-control-static">
+										{$data.updata_time}
+									</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">当期体检报告数：</label>
+								<div class="col-md-4">
+									<p class="form-control-static">
+										{$data.num} 份
+									</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">已查询：</label>
+								<div class="col-md-4">
+									<p class="form-control-static">
+										{$data.already} 份
+									</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">未查询：</label>
+								<div class="col-md-4">
+									<p class="form-control-static">
+										{$data['num']-$data['already']} 份
+									</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">自系统建立以来共出具报告：</label>
+								<div class="col-md-4">
+									<p class="form-control-static">
+										{$data.totle_num} 份
+									</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">总计查询：</label>
+								<div class="col-md-4">
+									<p class="form-control-static">
+										{$data.totle_view} 次
+									</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">自系统建立以来本系统首页访问量达：</label>
+								<div class="col-md-4">
+									<p class="form-control-static">
+										{$data.totle_pv} PV
+									</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">查询页面访问量达：</label>
+								<div class="col-md-4">
+									<p class="form-control-static">
+										{$data.view_pv} PV
+									</p>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</block>

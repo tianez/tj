@@ -1,0 +1,59 @@
+<extend name="layout" />
+<block name="main">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="portlet light bordered">
+				<div class="portlet-title">
+					<div class="caption">用户信息导入</div>
+				</div>
+				<div class="portlet-body form">
+					<form method="post" class="form-horizontal" enctype="multipart/form-data">
+						<div class="form-body">
+							<div class="form-group margin-top-20">
+								<div class="col-md-offset-1 col-md-11">
+									<input type="hidden" name="table" value="member" />
+									<input id="exampleInputFile" type="file" name="ff">
+									<!--<p class="help-block">some help text here.</p>-->
+								</div>
+							</div>
+						</div>
+						<div class="form-actions">
+							<div class="row">
+								<div class="col-md-offset-1 col-md-11">
+									<button type="submit" class="btn green">导入</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="portlet light bordered">
+				<div class="portlet-title">
+					<div class="caption">体检结果导入</div>
+				</div>
+				<div class="portlet-body form">
+					<form method="post" class="form-horizontal" enctype="multipart/form-data">
+						<div class="form-body">
+							<div class="form-group margin-top-20">
+								<div class="col-md-offset-1 col-md-11">
+									<input type="hidden" name="table" value="result" />
+									<input id="exampleInputFile" type="file" name="ff">
+									<!--<p class="help-block">some help text here.</p>-->
+								</div>
+							</div>
+						</div>
+						<div class="form-actions">
+							<div class="row">
+								<div class="col-md-offset-1 col-md-11">
+									<button type="submit" class="btn green">导入</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</block>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title>体检查询</title>
+		<link href="__PUBLIC__/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="__PUBLIC__/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<style>
+		.form-control-feedback {
+			right: 5px !important;
+			line-height: 46px;
+		}
+	</style>
+
+	<body>
+		<div class="container">
+			<form class="form-horizontal" method="post" style="max-width: 500px; margin: 0 auto;margin-top: 60px;">
+				<div class="form-group form-group-lg has-feedback">
+					<label class="control-label sr-only" for="id">体检单号</label>
+					<div class="input-group">
+						<span class="input-group-addon">体检单号</span>
+						<input type="text" name="id" class="form-control" id="id" aria-describedby="inputGroupSuccess1Status">
+					</div>
+					<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+					<span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+				</div>
+				<div class="form-group form-group-lg has-feedback">
+					<label class="control-label sr-only" for="password">查询密码</label>
+					<div class="input-group">
+						<span class="input-group-addon">查询密码</span>
+						<input type="text" name="password" class="form-control" id="password" aria-describedby="inputGroupSuccess1Status">
+					</div>
+					<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+					<span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+				</div>
+				<div style="padding-right: 110px; margin-right: -100px; width: 100%; float: left;">
+					<div class="form-group form-group-lg has-feedback">
+						<label class="control-label sr-only" for="inputGroupSuccess1">验证码</label>
+						<div class="input-group">
+							<span class="input-group-addon">　验证码</span>
+							<input type="text" class="form-control" name="yzm" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+						</div>
+						<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+						<span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+					</div>
+				</div>
+				<div class="form-group" style="float: right; width: 100px;">
+					<img src="http://localhost/mdtj/home/index/verify" style="width: 100%;height: 46px;">
+				</div>
+				<div class="form-group form-group-lg">
+					<button type="submit" class="btn btn-lg btn-primary btn-block">提交查询</button>
+				</div>
+			</form>
+		</div>
+		<!--[if lt IE 9]>
+			<script src="__PUBLIC__/js/respond.min.js" type="text/javascript"></script>
+		<![endif]-->
+		<script src="__PUBLIC__/global/plugins/jquery.min.js" type="text/javascript"></script>
+		<script src="__PUBLIC__/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+	</body>
+
+</html>
