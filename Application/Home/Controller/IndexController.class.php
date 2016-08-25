@@ -22,7 +22,8 @@ class IndexController extends Controller {
 				$map['client_number'] = I('post.id');
 				$user = M('members') -> where($map) -> find();
 				if (is_array($user)) {
-					$password = md5(I('post.password'));
+					// $password = md5(I('post.password'));
+					$password = I('post.password');
 					if ($password === $user['password']) {
 						if ($user['views'] > (O('search_num') - 1)) {
 							$this -> error('你已经超过查询次数限制！');
